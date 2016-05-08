@@ -19,14 +19,11 @@ function MatrixRotator(matrix){
 //                                         v        or Direction.CCW
 MatrixRotator.prototype.rotate = function(direction,layer) {
   // do work here
-  var orge = 0;
-  if(!layer){
+  var orge = layer || 0;
 
-  }
-  else
-    orge = layer;
-  if(layer > 3 || layer < 1)
-        throw new RangeError('Parameter must be between ' + 1 + ' and ' + 3);
+
+  if(layer > Math.floor(this.matrix.length/2) || layer < 1)
+        throw new RangeError('Parameter must be between ' + 1 + ' and ' + Math.floor(this.matrix.length/2));
 
   var z = this.matrix.length - 1;
   var copy = [];
